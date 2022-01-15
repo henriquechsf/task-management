@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateTaskDTO } from './dto/create-task.dto';
 import { GetTasksFilterDTO } from './dto/get-tasks-filter.dto';
+import { TaskStatus } from './task-status.enum';
 import { Task } from './task.entity';
 import { TasksRepository } from './tasks.repository';
 
@@ -69,4 +70,7 @@ export class TasksService {
   //   task.status = status;
   //   return task;
   // }
+  createTask(createTaskDto: CreateTaskDTO): Promise<Task> {
+    return this.tasksRepository.createTask(createTaskDto);
+  }
 }
