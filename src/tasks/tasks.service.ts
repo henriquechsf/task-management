@@ -32,6 +32,9 @@ export class TasksService {
   //   }
   //   return tasks;
   // }
+  getTasks(filterDto: GetTasksFilterDTO): Promise<Task[]> {
+    return this.tasksRepository.getTasks(filterDto);
+  }
 
   // getTaskById(id: string): Task {
   //   const foundTask = this.tasks.find((task) => task.id === id);
